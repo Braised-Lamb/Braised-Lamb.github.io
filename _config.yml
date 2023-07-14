@@ -23,14 +23,14 @@ email: ygaolamb@foxmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   写一点自己的东西
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://braised-lamb.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Braised-Lamb
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
-    - jekyll-remote-theme
+  - jekyll-remote-theme
 
 remote_theme: vszhub/not-pure-poole
 
