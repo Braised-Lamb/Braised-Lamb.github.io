@@ -1,6 +1,6 @@
 # Setup
-title: Not Pure Poole
-description: A simple, beautiful, and powerful Jekyll theme for blogs
+title: Lamb写东西的地方
+description: Too young, too simple. Sometimes naive.
 url: https://braised-lamb.github.io
 avatar: /avatar.jpeg
 paginate: 5
@@ -35,9 +35,9 @@ social:
     - https://weibo.com/u/5501285228
     - https://github.com/Braised-Lamb
 
-# sass:
-#   sass_dir: _sass
-#   style: :compressed
+sass:
+  sass_dir: _sass
+  style: :compressed
 
 # Options
 

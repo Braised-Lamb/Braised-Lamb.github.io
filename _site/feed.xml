@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T19:32:33+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb的博客</title><subtitle>写一点自己的东西</subtitle><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash.html" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash.html"><![CDATA[<h1 id="安装clash">安装clash</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T20:59:24+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/"><![CDATA[<p>最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置</p>
+
+<h2 id="安装clash">安装clash</h2>
 
 <ul>
   <li>github仓库地址：<code class="language-plaintext highlighter-rouge">https://github.com/Dreamacro/clash/releases </code></li>
@@ -15,9 +17,9 @@ wget <span class="nt">-O</span> https://github.com/Dreamacro/clash/releases/down
 <span class="nb">chmod</span> +x Clash/clash <span class="c">#添加执行权限</span>
 </code></pre></div></div>
 
-<h1 id="配置">配置</h1>
+<h2 id="配置">配置</h2>
 
-<h2 id="clash配置">clash配置</h2>
+<h3 id="clash配置">clash配置</h3>
 
 <p>执行命令运行clash</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./clash
@@ -32,7 +34,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> &lt;clash订阅地址&gt;
 </code></pre></div></div>
 
-<h2 id="代理配置">代理配置</h2>
+<h3 id="代理配置">代理配置</h3>
 
 <p>在使用clash的时候，考虑到诸如git、conda、python等环境都有可能使用代理，直接进行全局代理的设置，由clash来决定代理规则
 在<code class="language-plaintext highlighter-rouge">~/.bashrc</code>末尾添加语句</p>
@@ -46,7 +48,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 
 <p>使用<code class="language-plaintext highlighter-rouge">env | grep proxy</code>和<code class="language-plaintext highlighter-rouge">env | grep PROXY</code>验证设置情况</p>
 
-<h1 id="可视化面板">可视化面板</h1>
+<h2 id="可视化面板">可视化面板</h2>
 <p>在<code class="language-plaintext highlighter-rouge">~/.config/clash/</code>文件夹里下载<code class="language-plaintext highlighter-rouge">gh-pages</code>仓库编译好的文件</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">-b</span> gh-pages https://github.com/Dreamacro/clash-dashboard ui
 </code></pre></div></div>
@@ -65,7 +67,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 <p>连接成功后可以访问面板：
 <img src="https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141405478.png" alt="image.png" /></p>
 
-<h1 id="启动方式一注册服务">启动方式一：注册服务</h1>
+<h2 id="启动方式一注册服务">启动方式一：注册服务</h2>
 
 <p>完成以上工作后，已经实现了clash的安装和配置，美中不足的地方在于，这样在终端启动的方法，需要保持前台活跃，也就是要一直留着一个窗口给clash
 可以将clash注册为服务，实现开机启动和后台运行，新建文件</p>
@@ -94,7 +96,7 @@ systemctl <span class="nb">enable </span>clash
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service clash start
 </code></pre></div></div>
 
-<h1 id="启动方式二bashrc文件配置">启动方式二：.bashrc文件配置</h1>
+<h2 id="启动方式二bashrc文件配置">启动方式二：.bashrc文件配置</h2>
 
 <p>在<code class="language-plaintext highlighter-rouge">.bashrc</code>文件里添加以下语句</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">clashOn</span><span class="o">=</span><span class="s1">'nohup ~/Clash/clash &gt; /dev/null 2&gt;&amp;1 &amp;'</span>
@@ -105,10 +107,10 @@ systemctl <span class="nb">enable </span>clash
 <code class="language-plaintext highlighter-rouge">clashOff</code>实现停止clash进程
 可以通过<code class="language-plaintext highlighter-rouge">ps -ef | grep clash</code>来验证clash服务运行情况</p>
 
-<h1 id="参考">参考</h1>
+<h2 id="参考">参考</h2>
 <p><a href="https://www.xxpyy.top/detailed?id=14">在 Linux 服务器上安装 Clash，以及开机自动启动</a></p>
 
-<p><a href="https://www.duckflew.cn/archives/fu-wu-qi-shang-pei-zhi-c-l-a-s-h">服务器上配置clash - 真是古得</a></p>]]></content><author><name></name></author><category term="ubuntu配置" /><category term="ubuntu" /><category term="clash" /><summary type="html"><![CDATA[安装clash]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-07-14T17:15:17+08:00</published><updated>2023-07-14T17:15:17+08:00</updated><id>http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<p><a href="https://www.duckflew.cn/archives/fu-wu-qi-shang-pei-zhi-c-l-a-s-h">服务器上配置clash - 真是古得</a></p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="ubuntu配置" /><category term="ubuntu" /><category term="clash" /><summary type="html"><![CDATA[最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-07-14T17:15:17+08:00</published><updated>2023-07-14T17:15:17+08:00</updated><id>http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll/"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
@@ -124,4 +126,4 @@ systemctl <span class="nb">enable </span>clash
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
