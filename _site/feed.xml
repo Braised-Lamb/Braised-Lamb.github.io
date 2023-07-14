@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T18:53:04+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb的博客</title><subtitle>写一点自己的东西</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-07-14T17:15:17+08:00</published><updated>2023-07-14T17:15:17+08:00</updated><id>http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T19:32:33+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb的博客</title><subtitle>写一点自己的东西</subtitle><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash.html" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash.html"><![CDATA[<h1 id="安装clash">安装clash</h1>
+
+<ul>
+  <li>github仓库地址：<code class="language-plaintext highlighter-rouge">https://github.com/Dreamacro/clash/releases </code></li>
+</ul>
+
+<p>在合适位置新建文件夹<code class="language-plaintext highlighter-rouge">Clash</code>，使用命令行<code class="language-plaintext highlighter-rouge">mkdir</code>新建文件夹，本文使用目录为 <code class="language-plaintext highlighter-rouge">~/Clash</code>，在Clash文件夹里下载clash文件</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/Clash 
+<span class="nb">cd</span> ~/Clash
+wget <span class="nt">-O</span> https://github.com/Dreamacro/clash/releases/download/v1.17.0/clash-linux-386-v1.17.0.gz
+</code></pre></div></div>
+<p>解压文件，设置读写权限，重命名</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">gzip</span> <span class="nt">-d</span> clash-linux-386-v1.17.0.gz <span class="c">#解压 </span>
+<span class="nb">mv </span>clash-linux-386-v1.17.0.gz clash <span class="c">#修改为clash</span>
+<span class="nb">chmod</span> +x Clash/clash <span class="c">#添加执行权限</span>
+</code></pre></div></div>
+
+<h1 id="配置">配置</h1>
+
+<h2 id="clash配置">clash配置</h2>
+
+<p>执行命令运行clash</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./clash
+</code></pre></div></div>
+<p>初次运行会有提示下载初始配置文件在<code class="language-plaintext highlighter-rouge">~/.config/clash/</code>，包含<code class="language-plaintext highlighter-rouge">config.yaml</code>和<code class="language-plaintext highlighter-rouge">Country.mmdb</code>
+提示如下：</p>
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">INFO[0000] Can't find config, create a initial config file 
+INFO[0000] Can't find MMDB, start download              
+INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890 
+</span></code></pre></div></div>
+<p>要配置自己的配置文件，在<code class="language-plaintext highlighter-rouge">clash</code>文件夹里下载订阅的<code class="language-plaintext highlighter-rouge">config.yaml</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> &lt;clash订阅地址&gt;
+</code></pre></div></div>
+
+<h2 id="代理配置">代理配置</h2>
+
+<p>在使用clash的时候，考虑到诸如git、conda、python等环境都有可能使用代理，直接进行全局代理的设置，由clash来决定代理规则
+在<code class="language-plaintext highlighter-rouge">~/.bashrc</code>末尾添加语句</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># clash proxy</span>
+<span class="nb">alias </span><span class="nv">setProxy</span><span class="o">=</span><span class="s1">'export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890;export HTTP_PROXY=http://127.0.0.1:7890;export HTTPS_PROXY=http://127.0.0.1:7890'</span>
+<span class="nb">alias </span><span class="nv">unsetProxy</span><span class="o">=</span><span class="s1">'unset http_proxy;unset https_proxy;unset HTTP_PROXY;unset HTTPS_PROXY'</span>
+<span class="si">$(</span>setProxy<span class="si">)</span>
+</code></pre></div></div>
+<p>将<code class="language-plaintext highlighter-rouge">setProxy </code>注册为设置代理，<code class="language-plaintext highlighter-rouge">unsetProxy</code>为取消设置，可以直接在shell中运行
+<code class="language-plaintext highlighter-rouge">$(setProxy)</code>表示在<code class="language-plaintext highlighter-rouge">.bashrc</code>文件里执行设置代理</p>
+
+<p>使用<code class="language-plaintext highlighter-rouge">env | grep proxy</code>和<code class="language-plaintext highlighter-rouge">env | grep PROXY</code>验证设置情况</p>
+
+<h1 id="可视化面板">可视化面板</h1>
+<p>在<code class="language-plaintext highlighter-rouge">~/.config/clash/</code>文件夹里下载<code class="language-plaintext highlighter-rouge">gh-pages</code>仓库编译好的文件</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">-b</span> gh-pages https://github.com/Dreamacro/clash-dashboard ui
+</code></pre></div></div>
+<p>同时在<code class="language-plaintext highlighter-rouge">config.yaml</code>里设置端口和密钥</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A RESTful API for clash</span>
+<span class="na">external-controller</span><span class="pi">:</span> <span class="s">&lt;host_ip&gt;:&lt;port&gt;</span>
+<span class="na">external-ui</span><span class="pi">:</span> <span class="s">ui</span>
+
+<span class="c1"># Secret for RESTful API (Optional)</span>
+<span class="na">secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;secret&gt;"</span>
+</code></pre></div></div>
+<p>其中，<code class="language-plaintext highlighter-rouge">&lt;host_ip&gt;</code>修改为合适的ip，<code class="language-plaintext highlighter-rouge">&lt;port&gt;</code>设置为合适的端口，如果本地使用，用<code class="language-plaintext highlighter-rouge">127.0.0.1</code>，如果希望在局域网访问，就用服务器在局域网内的ip
+在<code class="language-plaintext highlighter-rouge">http://yacd.haishan.me/</code>填写配置访问面板，URL使用<code class="language-plaintext highlighter-rouge">http://&lt;host_ip&gt;:&lt;port&gt;</code>
+<img src="https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141400559.png" alt="image.png" /></p>
+
+<p>连接成功后可以访问面板：
+<img src="https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141405478.png" alt="image.png" /></p>
+
+<h1 id="启动方式一注册服务">启动方式一：注册服务</h1>
+
+<p>完成以上工作后，已经实现了clash的安装和配置，美中不足的地方在于，这样在终端启动的方法，需要保持前台活跃，也就是要一直留着一个窗口给clash
+可以将clash注册为服务，实现开机启动和后台运行，新建文件</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/systemd/system/clash.service
+</code></pre></div></div>
+<p>内容填充为：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit] 
+Description=clash service 
+After=network.target 
+
+[Service] 
+Type=simple 
+User=root # 用户名
+ExecStart=~/Clash/clash # clash文件路径 
+Restart=on-failure # or always, on-abort, etc 
+
+[Install] 
+WantedBy=multi-user.target
+</code></pre></div></div>
+<p>设置开机自启</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl daemon-reload 
+systemctl <span class="nb">enable </span>clash
+</code></pre></div></div>
+
+<p>之后也可以用以下语句启动clash</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service clash start
+</code></pre></div></div>
+
+<h1 id="启动方式二bashrc文件配置">启动方式二：.bashrc文件配置</h1>
+
+<p>在<code class="language-plaintext highlighter-rouge">.bashrc</code>文件里添加以下语句</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">clashOn</span><span class="o">=</span><span class="s1">'nohup ~/Clash/clash &gt; /dev/null 2&gt;&amp;1 &amp;'</span>
+<span class="nb">alias </span><span class="nv">clashOff</span><span class="o">=</span><span class="s1">'kill $(pgrep -f clash)'</span>
+<span class="si">$(</span>clashOn<span class="si">)</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">clashOn</code>实现后台启动clash
+<code class="language-plaintext highlighter-rouge">clashOff</code>实现停止clash进程
+可以通过<code class="language-plaintext highlighter-rouge">ps -ef | grep clash</code>来验证clash服务运行情况</p>
+
+<h1 id="参考">参考</h1>
+<p><a href="https://www.xxpyy.top/detailed?id=14">在 Linux 服务器上安装 Clash，以及开机自动启动</a></p>
+
+<p><a href="https://www.duckflew.cn/archives/fu-wu-qi-shang-pei-zhi-c-l-a-s-h">服务器上配置clash - 真是古得</a></p>]]></content><author><name></name></author><category term="ubuntu配置" /><category term="ubuntu" /><category term="clash" /><summary type="html"><![CDATA[安装clash]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-07-14T17:15:17+08:00</published><updated>2023-07-14T17:15:17+08:00</updated><id>http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 

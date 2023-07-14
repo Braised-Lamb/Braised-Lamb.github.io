@@ -1,0 +1,9 @@
+- title: Email
+  url: mailto://ygaolamb@foxmail.com
+  icon: fas fa-envelope
+- title: Weibo
+  url: https://weibo.com/u/5501285228
+  icon: fab fa-weibo
+- title: GitHub
+  url: https://github.com/Braised-Lamb
+  icon: fab fa-github
