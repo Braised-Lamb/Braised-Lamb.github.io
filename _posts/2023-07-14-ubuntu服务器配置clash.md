@@ -10,7 +10,6 @@ toc: true
 最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置
 
 ## 安装clash
-
 - github仓库地址：`https://github.com/Dreamacro/clash/releases `
 
 在合适位置新建文件夹`Clash`，使用命令行`mkdir`新建文件夹，本文使用目录为 `~/Clash`，在Clash文件夹里下载clash文件 
@@ -77,10 +76,10 @@ secret: "<secret>"
 ```
 其中，`<host_ip>`修改为合适的ip，`<port>`设置为合适的端口，如果本地使用，用`127.0.0.1`，如果希望在局域网访问，就用服务器在局域网内的ip
 在`http://yacd.haishan.me/`填写配置访问面板，URL使用`http://<host_ip>:<port>`
-![image.png](https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141400559.png)
+![image.png](https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142258460.png)
 
 连接成功后可以访问面板：
-![image.png](https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141405478.png)
+![image.png](https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142300699.png)
 
 ## 启动方式一：注册服务
 

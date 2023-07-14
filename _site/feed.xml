@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T21:02:31+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/"><![CDATA[<p>最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T23:02:12+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/"><![CDATA[<p>最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置</p>
 
 <h2 id="安装clash">安装clash</h2>
-
 <ul>
   <li>github仓库地址：<code class="language-plaintext highlighter-rouge">https://github.com/Dreamacro/clash/releases </code></li>
 </ul>
@@ -62,10 +61,10 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 </code></pre></div></div>
 <p>其中，<code class="language-plaintext highlighter-rouge">&lt;host_ip&gt;</code>修改为合适的ip，<code class="language-plaintext highlighter-rouge">&lt;port&gt;</code>设置为合适的端口，如果本地使用，用<code class="language-plaintext highlighter-rouge">127.0.0.1</code>，如果希望在局域网访问，就用服务器在局域网内的ip
 在<code class="language-plaintext highlighter-rouge">http://yacd.haishan.me/</code>填写配置访问面板，URL使用<code class="language-plaintext highlighter-rouge">http://&lt;host_ip&gt;:&lt;port&gt;</code>
-<img src="https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141400559.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142258460.png" alt="image.png" /></p>
 
 <p>连接成功后可以访问面板：
-<img src="https://gitee.com/Braised_Lamb/pic-bed/raw/master/202307141405478.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142300699.png" alt="image.png" /></p>
 
 <h2 id="启动方式一注册服务">启动方式一：注册服务</h2>
 
