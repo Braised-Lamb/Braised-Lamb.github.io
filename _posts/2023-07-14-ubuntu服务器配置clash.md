@@ -9,7 +9,7 @@ toc: true
 
 最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置
 
-## 安装clash
+# 安装clash
 - github仓库地址：`https://github.com/Dreamacro/clash/releases `
 
 在合适位置新建文件夹`Clash`，使用命令行`mkdir`新建文件夹，本文使用目录为 `~/Clash`，在Clash文件夹里下载clash文件 
@@ -25,9 +25,9 @@ mv clash-linux-386-v1.17.0.gz clash #修改为clash
 chmod +x Clash/clash #添加执行权限
 ```
 
-## 配置
+# 配置
 
-### clash配置
+## clash配置
 
 执行命令运行clash
 ```bash
@@ -45,7 +45,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 wget -O <clash订阅地址>
 ```
 
-### 代理配置
+## 代理配置
 
 在使用clash的时候，考虑到诸如git、conda、python等环境都有可能使用代理，直接进行全局代理的设置，由clash来决定代理规则
 在`~/.bashrc`末尾添加语句
@@ -60,7 +60,7 @@ $(setProxy)
 
 使用`env | grep proxy`和`env | grep PROXY`验证设置情况
 
-## 可视化面板
+# 可视化面板
 在`~/.config/clash/`文件夹里下载`gh-pages`仓库编译好的文件
 ```bash
 git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard ui
@@ -81,7 +81,7 @@ secret: "<secret>"
 连接成功后可以访问面板：
 ![image.png](https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142300699.png)
 
-## 启动方式一：注册服务
+# 启动方式一：注册服务
 
 完成以上工作后，已经实现了clash的安装和配置，美中不足的地方在于，这样在终端启动的方法，需要保持前台活跃，也就是要一直留着一个窗口给clash
 可以将clash注册为服务，实现开机启动和后台运行，新建文件
@@ -114,7 +114,7 @@ systemctl enable clash
 service clash start
 ```
 
-## 启动方式二：.bashrc文件配置
+# 启动方式二：.bashrc文件配置
 
 在`.bashrc`文件里添加以下语句
 ```bash
@@ -126,7 +126,7 @@ $(clashOn)
 `clashOff`实现停止clash进程
 可以通过`ps -ef | grep clash`来验证clash服务运行情况
 
-## 参考
+# 参考
 [在 Linux 服务器上安装 Clash，以及开机自动启动](https://www.xxpyy.top/detailed?id=14)
 
 [服务器上配置clash - 真是古得](https://www.duckflew.cn/archives/fu-wu-qi-shang-pei-zhi-c-l-a-s-h)

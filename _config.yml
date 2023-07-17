@@ -46,6 +46,25 @@ sass:
 
 # Replace this value and uncomment to enable Disqus
 # disqus: xxxxxx
+# Valine评论系统开关
+# Valine.
+# You can get your appid and appkey from https://leancloud.app
+# more info please open https://valine.js.org
+valine:
+  enable: true
+  appid:  1YfPYPDzg1ItyoW6UgTgLUNb-MdYXbMMI # your leancloud app id
+  appkey: vt5MV3WJjNg33KpLekOJBKSY # your leancloud app key
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki，v1.4.0+ 已废弃
+  verify: true # Verification code，v1.4.0+ 已废弃
+  placeholder: 非Github帐号登录用户，在此处留言 # comment box placeholder
+  avatar:   # gravatar style
+  guest_info: 昵称,邮件,网址 # custom comment header
+  pageSize: 10 # pagination size
+  # path: window.location.pathname #  v1.4.0+不要使用参数“app_key: 'LHvLGcwcauE5B2JpMxJ3lbtF',”
+  recordIP: true # 是否记录评论者IP
+  enableQQ: true # 是否启用昵称框自动获取QQ昵称和QQ头像, 默认关闭
+  avatar_cdn: https://sdn.geekzu.org/avatar/    # gravatar头像镜像
+  serverURLs: https://1yfpypdz.api.lncldglobal.com # 把前8位字符xxxxxxxx替换成你自己AppID的前8位字符，leancloud国际版添加该参数，国内版无需
 
 # Specify the author for blog posts
 author:

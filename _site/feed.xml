@@ -1,6 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T23:24:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/"><![CDATA[<p>最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-17T10:20:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">基于Qt的桌面镜面翻转程序</title><link href="http://localhost:4000/qt/2023/07/17/%E5%9F%BA%E4%BA%8EQt%E7%9A%84%E6%A1%8C%E9%9D%A2%E9%95%9C%E9%9D%A2%E7%BF%BB%E8%BD%AC%E7%A8%8B%E5%BA%8F/" rel="alternate" type="text/html" title="基于Qt的桌面镜面翻转程序" /><published>2023-07-17T09:08:23+08:00</published><updated>2023-07-17T09:08:23+08:00</updated><id>http://localhost:4000/qt/2023/07/17/%E5%9F%BA%E4%BA%8EQt%E7%9A%84%E6%A1%8C%E9%9D%A2%E9%95%9C%E9%9D%A2%E7%BF%BB%E8%BD%AC%E7%A8%8B%E5%BA%8F</id><content type="html" xml:base="http://localhost:4000/qt/2023/07/17/%E5%9F%BA%E4%BA%8EQt%E7%9A%84%E6%A1%8C%E9%9D%A2%E9%95%9C%E9%9D%A2%E7%BF%BB%E8%BD%AC%E7%A8%8B%E5%BA%8F/"><![CDATA[<p>windows桌面可以横向、纵向翻转显示桌面，但是不能对屏幕进行镜像翻转，当然基本上也不会有人有这种奇怪的需求。<a href="https://www.realtimesoft.com/ultramon/">UltraMon</a>可以实现这个功能，在扩展屏上镜像覆盖主屏幕，此外，这个软件本身也有很多很强大的功能。但是在主屏幕缩放比例超过100%时会无法正确显示，每次使用的时候都重新设置一下分辨率和缩放比例显得还是有些奇怪了。
+于是自己写了一个基于Qt的镜像翻转桌面的小程序，基本的原理就是捕获主屏幕的画面，将图像镜像翻转后显示在窗口内。
+<strong>如果想直接下载使用可以参考<a href="#github">github页面</a>的<a href="#download">下载</a>链接。</strong></p>
 
-<h2 id="安装clash">安装clash</h2>
+<p>看看效果先：
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307170907586.png" alt="扩展模式的双屏幕示例，右下为主屏幕，左上为扩展屏幕" /></p>
+
+<h1 id="捕获窗口">捕获窗口</h1>
+<p><code class="language-plaintext highlighter-rouge">QPixmap QScreen::grabWindow(WId window = 0, int x = 0, int y = 0, int width = -1, int height = -1)</code>可以实现指定句柄的窗口捕获，但是美中不足的是没有办法捕获到鼠标。
+函数<code class="language-plaintext highlighter-rouge">grW(HWND winId, int x, int y, int w, int h)</code><a href="#grW">参考附录1</a>，实现了捕获桌面的同时也捕获鼠标，在使用时需要在Qt的设置中添加<code class="language-plaintext highlighter-rouge">winextras</code>组件。
+<code class="language-plaintext highlighter-rouge">winId</code>是窗口句柄，获取主桌面的句柄可以借助以下语句实现：</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="n">screen</span> <span class="o">=</span> <span class="n">QGuiApplication</span><span class="o">::</span><span class="n">primaryScreen</span><span class="p">();</span>
+</code></pre></div></div>
+<p>获取窗口后，将图像进行镜面翻转后再嵌入窗口中，这个功能可能借助Qt自带的<code class="language-plaintext highlighter-rouge">QImage QImage::mirrored(bool horizontal = false, bool vertical = true)</code>函数实现，两个参数分别为水平方向和垂直方向的翻转与否。</p>
+<h1 id="定时触发">定时触发</h1>
+<p>搞定了桌面和鼠标捕获，其实基本上就完成了主要工作，接下来只要设置一个定时器实时触发桌面捕获和显示的槽函数就可以了。</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="n">connect</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">timeout</span><span class="p">()),</span> <span class="k">this</span><span class="p">,</span> <span class="n">SLOT</span><span class="p">(</span><span class="n">timeoutSlot</span><span class="p">()));</span>
+	<span class="n">timer</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+<p>定时器的触发间隔看需求了，虽然代码里设置了2毫秒，实际上也达不到这么快的速度，考虑到只在本地执行，也没有加上缓存区存储图像。</p>
+<h1 id="全屏切换">全屏切换</h1>
+<p>毕竟是用窗口覆盖了桌面，在显示的时候还是全屏遮盖掉其他应用和任务栏比较好，重构一下鼠标双击事件：</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">screenRelayer</span><span class="o">::</span><span class="n">mouseDoubleClickEvent</span><span class="p">(</span><span class="n">QMouseEvent</span><span class="o">*</span> <span class="n">mouseEvent</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">//showFlag为标志位</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">showFlag</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="o">-&gt;</span><span class="n">showFullScreen</span><span class="p">();</span>
+		<span class="n">showFlag</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="k">this</span><span class="o">-&gt;</span><span class="n">showNormal</span><span class="p">();</span>
+		<span class="n">showFlag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>这样就可以在窗口内通过双击鼠标切换全屏和窗口了。</p>
+
+<h1 id="附录">附录</h1>
+<ol>
+  <li>
+    <p><span id="grW">窗口捕获函数实现<a href="#refer-anchor-1"><sup>1</sup></a></span></p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">QPixmap</span> <span class="n">screenRelayer</span><span class="o">::</span><span class="n">grW</span><span class="p">(</span><span class="n">HWND</span> <span class="n">winId</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+ <span class="p">{</span>
+
+     <span class="n">RECT</span> <span class="n">r</span><span class="p">;</span>
+     <span class="n">GetClientRect</span><span class="p">(</span><span class="n">winId</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">);</span>
+
+     <span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">w</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">r</span><span class="p">.</span><span class="n">left</span><span class="p">;</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">h</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">bottom</span> <span class="o">-</span> <span class="n">r</span><span class="p">.</span><span class="n">top</span><span class="p">;</span>
+
+     <span class="n">HDC</span> <span class="n">display_dc</span> <span class="o">=</span> <span class="n">GetDC</span><span class="p">(</span><span class="n">winId</span><span class="p">);</span>
+     <span class="n">HDC</span> <span class="n">bitmap_dc</span> <span class="o">=</span> <span class="n">CreateCompatibleDC</span><span class="p">(</span><span class="n">display_dc</span><span class="p">);</span>
+     <span class="n">HBITMAP</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="n">CreateCompatibleBitmap</span><span class="p">(</span><span class="n">display_dc</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
+     <span class="n">HGDIOBJ</span> <span class="n">null_bitmap</span> <span class="o">=</span> <span class="n">SelectObject</span><span class="p">(</span><span class="n">bitmap_dc</span><span class="p">,</span> <span class="n">bitmap</span><span class="p">);</span>
+
+     <span class="n">BitBlt</span><span class="p">(</span><span class="n">bitmap_dc</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">display_dc</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">SRCCOPY</span> <span class="o">|</span> <span class="n">CAPTUREBLT</span><span class="p">);</span>
+
+     <span class="n">CURSORINFO</span> <span class="n">ci</span><span class="p">;</span>
+     <span class="n">ci</span><span class="p">.</span><span class="n">cbSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">CURSORINFO</span><span class="p">);</span>
+     <span class="n">GetCursorInfo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ci</span><span class="p">);</span>
+     <span class="k">if</span> <span class="p">((</span><span class="n">ci</span><span class="p">.</span><span class="n">ptScreenPos</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">ci</span><span class="p">.</span><span class="n">ptScreenPos</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">ci</span><span class="p">.</span><span class="n">ptScreenPos</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">ci</span><span class="p">.</span><span class="n">ptScreenPos</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">)))</span>
+         <span class="n">DrawIcon</span><span class="p">(</span><span class="n">bitmap_dc</span><span class="p">,</span> <span class="n">ci</span><span class="p">.</span><span class="n">ptScreenPos</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="n">ci</span><span class="p">.</span><span class="n">ptScreenPos</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">ci</span><span class="p">.</span><span class="n">hCursor</span><span class="p">);</span>
+
+     <span class="c1">// clean up all but bitmap</span>
+     <span class="n">ReleaseDC</span><span class="p">(</span><span class="n">winId</span><span class="p">,</span> <span class="n">display_dc</span><span class="p">);</span>
+     <span class="n">SelectObject</span><span class="p">(</span><span class="n">bitmap_dc</span><span class="p">,</span> <span class="n">null_bitmap</span><span class="p">);</span>
+     <span class="n">DeleteDC</span><span class="p">(</span><span class="n">bitmap_dc</span><span class="p">);</span>
+
+     <span class="n">QPixmap</span> <span class="n">pixmap</span> <span class="o">=</span> <span class="n">QtWin</span><span class="o">::</span><span class="n">fromHBITMAP</span><span class="p">(</span><span class="n">bitmap</span><span class="p">);</span>
+
+     <span class="n">DeleteObject</span><span class="p">(</span><span class="n">bitmap</span><span class="p">);</span>
+
+     <span class="k">return</span> <span class="n">pixmap</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>链接：
+ <span id="github"><a href="https://github.com/Braised-Lamb/screenRelayer">https://github.com/Braised-Lamb/screenRelayer</a></span>
+ <span id="download"><a href="https://github.com/Braised-Lamb/screenRelayer/releases/download/v1.0/screenRelayer-v1.0.zip">软件下载</a></span></p>
+    <h1 id="参考">参考</h1>
+  </li>
+</ol>
+<div id="refer-anchor-1"></div>
+
+<ul>
+  <li>[1] <a href="https://blog.csdn.net/qq_28581781/article/details/99644729">windows 下使用Qt抓取桌面和鼠标</a></li>
+</ul>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="Qt" /><category term="Qt" /><summary type="html"><![CDATA[windows桌面可以横向、纵向翻转显示桌面，但是不能对屏幕进行镜像翻转，当然基本上也不会有人有这种奇怪的需求。UltraMon可以实现这个功能，在扩展屏上镜像覆盖主屏幕，此外，这个软件本身也有很多很强大的功能。但是在主屏幕缩放比例超过100%时会无法正确显示，每次使用的时候都重新设置一下分辨率和缩放比例显得还是有些奇怪了。 于是自己写了一个基于Qt的镜像翻转桌面的小程序，基本的原理就是捕获主屏幕的画面，将图像镜像翻转后显示在窗口内。 如果想直接下载使用可以参考github页面的下载链接。]]></summary></entry><entry><title type="html">ubuntu服务器配置clash</title><link href="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/" rel="alternate" type="text/html" title="ubuntu服务器配置clash" /><published>2023-07-14T19:30:45+08:00</published><updated>2023-07-14T19:30:45+08:00</updated><id>http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash</id><content type="html" xml:base="http://localhost:4000/ubuntu%E9%85%8D%E7%BD%AE/2023/07/14/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEclash/"><![CDATA[<p>最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置</p>
+
+<h1 id="安装clash">安装clash</h1>
 <ul>
   <li>github仓库地址：<code class="language-plaintext highlighter-rouge">https://github.com/Dreamacro/clash/releases </code></li>
 </ul>
@@ -16,9 +104,9 @@ wget <span class="nt">-O</span> https://github.com/Dreamacro/clash/releases/down
 <span class="nb">chmod</span> +x Clash/clash <span class="c">#添加执行权限</span>
 </code></pre></div></div>
 
-<h2 id="配置">配置</h2>
+<h1 id="配置">配置</h1>
 
-<h3 id="clash配置">clash配置</h3>
+<h2 id="clash配置">clash配置</h2>
 
 <p>执行命令运行clash</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./clash
@@ -33,7 +121,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> &lt;clash订阅地址&gt;
 </code></pre></div></div>
 
-<h3 id="代理配置">代理配置</h3>
+<h2 id="代理配置">代理配置</h2>
 
 <p>在使用clash的时候，考虑到诸如git、conda、python等环境都有可能使用代理，直接进行全局代理的设置，由clash来决定代理规则
 在<code class="language-plaintext highlighter-rouge">~/.bashrc</code>末尾添加语句</p>
@@ -47,7 +135,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 
 <p>使用<code class="language-plaintext highlighter-rouge">env | grep proxy</code>和<code class="language-plaintext highlighter-rouge">env | grep PROXY</code>验证设置情况</p>
 
-<h2 id="可视化面板">可视化面板</h2>
+<h1 id="可视化面板">可视化面板</h1>
 <p>在<code class="language-plaintext highlighter-rouge">~/.config/clash/</code>文件夹里下载<code class="language-plaintext highlighter-rouge">gh-pages</code>仓库编译好的文件</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">-b</span> gh-pages https://github.com/Dreamacro/clash-dashboard ui
 </code></pre></div></div>
@@ -66,7 +154,7 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 <p>连接成功后可以访问面板：
 <img src="https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142300699.png" alt="image.png" /></p>
 
-<h2 id="启动方式一注册服务">启动方式一：注册服务</h2>
+<h1 id="启动方式一注册服务">启动方式一：注册服务</h1>
 
 <p>完成以上工作后，已经实现了clash的安装和配置，美中不足的地方在于，这样在终端启动的方法，需要保持前台活跃，也就是要一直留着一个窗口给clash
 可以将clash注册为服务，实现开机启动和后台运行，新建文件</p>
@@ -95,7 +183,7 @@ systemctl <span class="nb">enable </span>clash
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service clash start
 </code></pre></div></div>
 
-<h2 id="启动方式二bashrc文件配置">启动方式二：.bashrc文件配置</h2>
+<h1 id="启动方式二bashrc文件配置">启动方式二：.bashrc文件配置</h1>
 
 <p>在<code class="language-plaintext highlighter-rouge">.bashrc</code>文件里添加以下语句</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">clashOn</span><span class="o">=</span><span class="s1">'nohup ~/Clash/clash &gt; /dev/null 2&gt;&amp;1 &amp;'</span>
@@ -106,7 +194,7 @@ systemctl <span class="nb">enable </span>clash
 <code class="language-plaintext highlighter-rouge">clashOff</code>实现停止clash进程
 可以通过<code class="language-plaintext highlighter-rouge">ps -ef | grep clash</code>来验证clash服务运行情况</p>
 
-<h2 id="参考">参考</h2>
+<h1 id="参考">参考</h1>
 <p><a href="https://www.xxpyy.top/detailed?id=14">在 Linux 服务器上安装 Clash，以及开机自动启动</a></p>
 
 <p><a href="https://www.duckflew.cn/archives/fu-wu-qi-shang-pei-zhi-c-l-a-s-h">服务器上配置clash - 真是古得</a></p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="ubuntu配置" /><category term="ubuntu" /><category term="clash" /><summary type="html"><![CDATA[最近把实验室的服务器弄了一下，装了个clash，但是远程图形化桌面老是搞不定，查了一些资料实现了在web面板里调整设置]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-07-14T17:15:17+08:00</published><updated>2023-07-14T17:15:17+08:00</updated><id>http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/07/14/welcome-to-jekyll/"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>

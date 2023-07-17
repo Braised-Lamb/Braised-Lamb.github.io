@@ -34,6 +34,15 @@ layout: default
   {% if jekyll.environment == "production" and site.disqus and page.comments != false %}
     {% include disqus.html %}
   {% endif %}
+  <!-- Valine 评论框 start -->
+  {% if site.valine.enable %}
+    {% include valine_comments.html %}
+  {% endif %}
+  <!-- Valine 评论框 end -->
+  <span id="busuanzi_container_site_pv">    
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
 </article>
 
 {% if site.related_posts != empty %}
