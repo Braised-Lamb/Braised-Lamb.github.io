@@ -149,10 +149,10 @@ INFO[0002] Mixed(http+socks) proxy listening at: 127.0.0.1:7890
 </code></pre></div></div>
 <p>其中，<code class="language-plaintext highlighter-rouge">&lt;host_ip&gt;</code>修改为合适的ip，<code class="language-plaintext highlighter-rouge">&lt;port&gt;</code>设置为合适的端口，如果本地使用，用<code class="language-plaintext highlighter-rouge">127.0.0.1</code>，如果希望在局域网访问，就用服务器在局域网内的ip
 在<code class="language-plaintext highlighter-rouge">http://yacd.haishan.me/</code>填写配置访问面板，URL使用<code class="language-plaintext highlighter-rouge">http://&lt;host_ip&gt;:&lt;port&gt;</code>
-<img src="https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142258460.png" alt="image.png" /></p>
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307152011152.png" alt="image.png" /></p>
 
 <p>连接成功后可以访问面板：
-<img src="https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142300699.png" alt="image.png" /></p>
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307152011163.png" alt="image.png" /></p>
 
 <h1 id="启动方式一注册服务">启动方式一：注册服务</h1>
 

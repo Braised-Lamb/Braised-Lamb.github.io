@@ -76,10 +76,10 @@ secret: "<secret>"
 ```
 其中，`<host_ip>`修改为合适的ip，`<port>`设置为合适的端口，如果本地使用，用`127.0.0.1`，如果希望在局域网访问，就用服务器在局域网内的ip
 在`http://yacd.haishan.me/`填写配置访问面板，URL使用`http://<host_ip>:<port>`
-![image.png](https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142258460.png)
+![image.png](https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307152011152.png)
 
 连接成功后可以访问面板：
-![image.png](https://raw.githubusercontent.com/Braised-Lamb/picbed/master/202307142300699.png)
+![image.png](https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307152011163.png)
 
 # 启动方式一：注册服务
 
