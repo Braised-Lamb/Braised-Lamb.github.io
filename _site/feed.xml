@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-20T09:21:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">VS中配置Qt并设置应用程序图标</title><link href="http://localhost:4000/qt%20vs/2023/07/19/VS-Qt%E9%85%8D%E7%BD%AE/" rel="alternate" type="text/html" title="VS中配置Qt并设置应用程序图标" /><published>2023-07-19T20:53:47+08:00</published><updated>2023-07-19T20:53:47+08:00</updated><id>http://localhost:4000/qt%20vs/2023/07/19/VS-Qt%E9%85%8D%E7%BD%AE</id><content type="html" xml:base="http://localhost:4000/qt%20vs/2023/07/19/VS-Qt%E9%85%8D%E7%BD%AE/"><![CDATA[<p>在visual studio里配置qt，以及程序的图标设置</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-21T13:44:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">windows共享文件夹的连接不上的解决方案</title><link href="http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="alternate" type="text/html" title="windows共享文件夹的连接不上的解决方案" /><published>2023-07-21T13:38:05+08:00</published><updated>2023-07-21T13:38:05+08:00</updated><id>http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><![CDATA[<p>手头有几台机器，想要构建一下网络共享，把几台设备的文件夹都互相映射一下，方便访问。但是在<strong>网络</strong>里面通过ip访问局域网设备时发现出现了<strong>无法访问</strong>的问题，在终端里<code class="language-plaintext highlighter-rouge">ping ip</code>也行不通，搜集资料自己试了之后总结了一下。</p>
+
+<h1 id="共享设置">共享设置</h1>
+
+<h2 id="属性设置">属性设置</h2>
+
+<p>磁盘文件夹当然要设置共享，这个简单，邮件目标磁盘或者文件夹，在<strong>共享</strong>标签页里面打开高级共享进行相应设置就行了
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211313254.png" alt="image.png" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211313916.png" alt="image.png" /></p>
+
+<p><strong>网络和共享中心</strong>里面也可以进行相应设置，主要是出于网络和安全性考虑
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211315173.png" alt="image.png" /></p>
+
+<h2 id="检验共享">检验共享</h2>
+
+<p>在资源管理器里面输入<code class="language-plaintext highlighter-rouge">\\localhost</code>访问，可以看到本机共享的文件夹
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211336878.png" alt="image.png" /></p>
+
+<h1 id="防火墙设置">防火墙设置</h1>
+
+<p>文件夹共享设置好了以后，如果不能正常<code class="language-plaintext highlighter-rouge">ping</code>或者在资源管理器访问ip，先关闭防火墙看看有没有问题，如果关闭防火墙正常表现，那就修改一下防火墙规则</p>
+
+<ol>
+  <li>在<strong>windows安全中心</strong>里打开<strong>高级设置</strong><img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211319812.png" alt="image.png" /></li>
+  <li>选择<strong>入站规则</strong>按组筛选<strong>文件和打印机共享</strong><img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211322450.png" alt="image.png" /></li>
+</ol>
+
+<p>在这些规则里面，有两条和我们的需求相关</p>
+<ul>
+  <li><strong>文件和打印机共享（回显请求 - ICMPv4）</strong> ：“回显请求”消息是作为 Ping 请求发送到其他节点的；启用这条规则启用ping回显。</li>
+  <li><strong>文件和打印机共享（SMB-In）</strong>：用于文件和打印机共享的入站规则，以允许通过命名管道传输和接收服务器消息块；启用这条规则启用smb文件服务。</li>
+</ul>
+
+<p>启用后，如果还是不行，那就设置一下规则的<strong>作用域</strong>，双击规则打开子窗口，切换到<strong>作用域</strong>标签页，设置<strong>远程IP地址</strong>，添加自己的目标设备ip
+<img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/202307211334692.png" alt="image.png" />
+我这里因为用的组网工具，就填了虚拟局域网里分配的ip，我也不知道为什么不是本地IP
+到这里就应该就可以正常远程访问文件夹和ping通机器了</p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="windows配置" /><category term="windows" /><summary type="html"><![CDATA[手头有几台机器，想要构建一下网络共享，把几台设备的文件夹都互相映射一下，方便访问。但是在网络里面通过ip访问局域网设备时发现出现了无法访问的问题，在终端里ping ip也行不通，搜集资料自己试了之后总结了一下。]]></summary></entry><entry><title type="html">VS中配置Qt并设置应用程序图标</title><link href="http://localhost:4000/qt%20vs/2023/07/19/VS-Qt%E9%85%8D%E7%BD%AE/" rel="alternate" type="text/html" title="VS中配置Qt并设置应用程序图标" /><published>2023-07-19T20:53:47+08:00</published><updated>2023-07-19T20:53:47+08:00</updated><id>http://localhost:4000/qt%20vs/2023/07/19/VS-Qt%E9%85%8D%E7%BD%AE</id><content type="html" xml:base="http://localhost:4000/qt%20vs/2023/07/19/VS-Qt%E9%85%8D%E7%BD%AE/"><![CDATA[<p>在visual studio里配置qt，以及程序的图标设置</p>
 
 <h2 id="requirements">Requirements</h2>
 
