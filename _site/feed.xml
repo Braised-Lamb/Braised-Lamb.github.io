@@ -1,4 +1,907 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-24T11:17:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">windows共享文件夹的连接不上的解决方案</title><link href="http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="alternate" type="text/html" title="windows共享文件夹的连接不上的解决方案" /><published>2023-07-21T13:38:05+08:00</published><updated>2023-07-21T13:38:05+08:00</updated><id>http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><![CDATA[<p>手头有几台机器，想要构建一下网络共享，把几台设备的文件夹都互相映射一下，方便访问。但是在<strong>网络</strong>里面通过ip访问局域网设备时发现出现了<strong>无法访问</strong>的问题，在终端里<code class="language-plaintext highlighter-rouge">ping ip</code>也行不通，搜集资料自己试了之后总结了一下。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-12-06T10:32:38+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">Pycharm快捷键</title><link href="http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="alternate" type="text/html" title="Pycharm快捷键" /><published>2023-12-06T10:15:00+08:00</published><updated>2023-12-06T10:15:00+08:00</updated><id>http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE</id><content type="html" xml:base="http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/"><![CDATA[<p>PyCharm的快捷键记录，转自 <a href="https://www.cnblogs.com/echohye/p/15419237.html">https://www.cnblogs.com/echohye/p/15419237.html</a>，如有侵权，请联系删除。</p>
+
+<ul>
+  <li><strong>原文作者：</strong> <a href="https://www.cnblogs.com/echohye">北风几吹夏</a></li>
+  <li><strong>原文链接：</strong> <a href="https://www.cnblogs.com/echohye/p/15419237.html">https://www.cnblogs.com/echohye/p/15419237.html</a></li>
+</ul>
+
+<h1 id="常用快捷键">常用快捷键</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ctrl + Q</td>
+      <td>快速查看文档</td>
+    </tr>
+    <tr>
+      <td>Ctrl + F1</td>
+      <td>显示错误描述或警告信息</td>
+    </tr>
+    <tr>
+      <td>Ctrl + /</td>
+      <td>行注释（可选中多行）</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + L</td>
+      <td>代码格式化</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + O</td>
+      <td>自动导入</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + I</td>
+      <td>自动缩进</td>
+    </tr>
+    <tr>
+      <td>Tab / Shift + Tab</td>
+      <td>缩进、不缩进当前行（可选中多行）</td>
+    </tr>
+    <tr>
+      <td>Ctrl+C/Ctrl+Insert</td>
+      <td>复制当前行或选定的代码块到剪贴板</td>
+    </tr>
+    <tr>
+      <td>Ctrl + D</td>
+      <td>复制选定的区域</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Y</td>
+      <td>删除当前行</td>
+    </tr>
+    <tr>
+      <td>Shift + Enter</td>
+      <td>换行（不用鼠标操作了）</td>
+    </tr>
+    <tr>
+      <td>Ctrl +Ｊ</td>
+      <td>插入模版</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift +/-</td>
+      <td>展开/折叠全部代码块</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Numpad+</td>
+      <td>全部展开</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Numpad-</td>
+      <td>全部折叠</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Delete</td>
+      <td>删除到字符结束</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Backspace</td>
+      <td>删除到字符开始</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + F7</td>
+      <td>将当前单词在整个文件中高亮，F3移动到下一个，ESC取消高亮。</td>
+    </tr>
+    <tr>
+      <td>Alt + up/down</td>
+      <td>方法上移或下移动</td>
+    </tr>
+    <tr>
+      <td>Alt + Shift + up/down</td>
+      <td>当前行上移或下移动</td>
+    </tr>
+    <tr>
+      <td>Ctrl + B/鼠标左键</td>
+      <td>转到方法定义处</td>
+    </tr>
+    <tr>
+      <td>Ctrl + W</td>
+      <td>选中增加的代码块</td>
+    </tr>
+    <tr>
+      <td>Shift + F6</td>
+      <td>方法或变量重命名</td>
+    </tr>
+    <tr>
+      <td>Ctrl + E</td>
+      <td>最近访问的文件</td>
+    </tr>
+    <tr>
+      <td>Esc</td>
+      <td>从其他窗口回到编辑窗口</td>
+    </tr>
+    <tr>
+      <td>Shift + Esc</td>
+      <td>隐藏当前窗口，焦点到编辑窗口</td>
+    </tr>
+    <tr>
+      <td>F12</td>
+      <td>回到先前的工具窗口</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + up</td>
+      <td>快速上移某一行</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + down</td>
+      <td>快速下移某一行</td>
+    </tr>
+    <tr>
+      <td>ctrl+alt+左箭头</td>
+      <td>返回上一个光标的位置（CTRL进入函数后返回）</td>
+    </tr>
+    <tr>
+      <td>ctrl+alt+右箭头</td>
+      <td>前进到后一个光标的位置</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="全部快捷键">全部快捷键</h1>
+
+<h2 id="编辑editing">编辑（Editing）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ctrl + Space</td>
+      <td>基本的代码完成（类、方法、属性）</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + Space</td>
+      <td>快速导入任意类</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + Enter</td>
+      <td>语句完成</td>
+    </tr>
+    <tr>
+      <td>Ctrl + P</td>
+      <td>参数信息（在方法中调用参数）</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Q</td>
+      <td>快速查看文档</td>
+    </tr>
+    <tr>
+      <td>Shift + F1</td>
+      <td>外部文档</td>
+    </tr>
+    <tr>
+      <td>Ctrl + 鼠标</td>
+      <td>简介</td>
+    </tr>
+    <tr>
+      <td>Ctrl + F1</td>
+      <td>显示错误描述或警告信息</td>
+    </tr>
+    <tr>
+      <td>Alt + Insert</td>
+      <td>自动生成代码</td>
+    </tr>
+    <tr>
+      <td>Ctrl + O</td>
+      <td>重新方法</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + T</td>
+      <td>选中</td>
+    </tr>
+    <tr>
+      <td>Ctrl + /</td>
+      <td>行注释</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + /</td>
+      <td>块注释</td>
+    </tr>
+    <tr>
+      <td>Ctrl + W</td>
+      <td>选中增加的代码块</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + W</td>
+      <td>回到之前状态</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + ]/[</td>
+      <td>选定代码块结束、开始</td>
+    </tr>
+    <tr>
+      <td>Alt + Enter</td>
+      <td>快速修正</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + L</td>
+      <td>代码格式化</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + O</td>
+      <td>自动导入</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + I</td>
+      <td>自动缩进</td>
+    </tr>
+    <tr>
+      <td>Tab / Shift + Tab</td>
+      <td>缩进、不缩进当前行</td>
+    </tr>
+    <tr>
+      <td>Ctrl+X/Shift+Delete</td>
+      <td>剪切当前行或选定的代码块到剪贴板</td>
+    </tr>
+    <tr>
+      <td>Ctrl+C/Ctrl+Insert</td>
+      <td>复制当前行或选定的代码块到剪贴板</td>
+    </tr>
+    <tr>
+      <td>Ctrl+V/Shift+Insert</td>
+      <td>从剪贴板粘贴</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + V</td>
+      <td>从最近的缓冲区粘贴</td>
+    </tr>
+    <tr>
+      <td>Ctrl + D</td>
+      <td>复制选定的区域或行到后面或下一行</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Y</td>
+      <td>删除当前行</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + J</td>
+      <td>添加智能线</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Enter</td>
+      <td>智能线切割</td>
+    </tr>
+    <tr>
+      <td>Shift + Enter</td>
+      <td>下一行另起一行</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + U</td>
+      <td>在选定的区域或代码块间切换</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Delete</td>
+      <td>删除到字符结束</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Backspace</td>
+      <td>删除到字符开始</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Numpad+/-</td>
+      <td>展开折叠代码块</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Numpad+</td>
+      <td>全部展开</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Numpad-</td>
+      <td>全部折叠</td>
+    </tr>
+    <tr>
+      <td>Ctrl + F4</td>
+      <td>关闭运行的选项卡</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="查找替换searchreplace">查找/替换(Search/Replace)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F3</td>
+      <td>下一个</td>
+    </tr>
+    <tr>
+      <td>Shift + F3</td>
+      <td>前一个</td>
+    </tr>
+    <tr>
+      <td>Ctrl + R</td>
+      <td>替换</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + F</td>
+      <td>全局查找</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + R</td>
+      <td>全局替换</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="运行running">运行(Running)</h2>
+<p>| 快捷键 | 功能 |
+| — | — |
+| Alt + Shift + F10 | 运行模式配置 |
+| Alt + Shift + F9 | 调试模式配置 |
+| Shift + F10 | 运行 |
+| Shift + F9 | 调试 |
+| Ctrl + Shift + F10 | 运行编辑器配置 |
+| Ctrl + Alt + R | 运行manage.py任务 |</p>
+
+<h2 id="调试debugging">调试(Debugging)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F8</td>
+      <td>跳过</td>
+    </tr>
+    <tr>
+      <td>F7</td>
+      <td>进入</td>
+    </tr>
+    <tr>
+      <td>Shift + F8</td>
+      <td>退出</td>
+    </tr>
+    <tr>
+      <td>Alt + F9</td>
+      <td>运行游标</td>
+    </tr>
+    <tr>
+      <td>Alt + F8</td>
+      <td>验证表达式</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + F8</td>
+      <td>快速验证表达式</td>
+    </tr>
+    <tr>
+      <td>F9</td>
+      <td>恢复程序</td>
+    </tr>
+    <tr>
+      <td>Ctrl + F8</td>
+      <td>断点开关</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + F8</td>
+      <td>查看断点</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="导航navigation">导航(Navigation)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ctrl + N</td>
+      <td>跳转到类</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + N</td>
+      <td>跳转到符号</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Alt + Right/Left</td>
+      <td>跳转到下一个、前一个编辑的选项卡</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F12</td>
+      <td>回到先前的工具窗口</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Esc</td>
+      <td>从其他窗口回到编辑窗口</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Shift + Esc</td>
+      <td>隐藏当前窗口，焦点到编辑窗口</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + F4</td>
+      <td>关闭主动运行的选项卡</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + G</td>
+      <td>查看当前行号、字符号</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + E</td>
+      <td>最近访问的文件</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl+Alt+Left/Right</td>
+      <td>后退、前进</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl+Shift+Backspace</td>
+      <td>导航到最近编辑区域</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Alt + F1</td>
+      <td>查找当前文件或标识</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl+B / Ctrl+Click</td>
+      <td>跳转到声明</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + B</td>
+      <td>跳转到实现</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + I</td>
+      <td>查看快速定义</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + B</td>
+      <td>跳转到类型声明</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + U</td>
+      <td>跳转到父方法、父类</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Alt + Up/Down</td>
+      <td>跳转到上一个、下一个方法</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + ]/[</td>
+      <td>跳转到代码块结束、开始</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + F12</td>
+      <td>弹出文件结构</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + H</td>
+      <td>类型层次结构</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + H</td>
+      <td>方法层次结构</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + H</td>
+      <td>调用层次结构</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F2 / Shift + F2</td>
+      <td>下一条、前一条高亮的错误</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F4 / Ctrl + Enter</td>
+      <td>编辑资源、查看资源</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Alt + Home</td>
+      <td>显示导航条F11书签开关</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift +F11</td>
+      <td>书签助记开关</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ctrl #[0-9]</td>
+      <td>+</td>
+      <td>跳转到标识的书签</td>
+    </tr>
+    <tr>
+      <td>Shift +</td>
+      <td>F11显示书签</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="搜索相关usage-search">搜索相关(Usage Search)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alt + F7/Ctrl + F7</td>
+      <td>文件中查询用法</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + F7</td>
+      <td>文件中用法高亮显示</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + F7</td>
+      <td>显示用法</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="重构refactoring">重构(Refactoring)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F5</td>
+      <td>复制</td>
+    </tr>
+    <tr>
+      <td>F6</td>
+      <td>剪切</td>
+    </tr>
+    <tr>
+      <td>Alt + Delete</td>
+      <td>安全删除</td>
+    </tr>
+    <tr>
+      <td>Shift + F6</td>
+      <td>方法或变量重命名</td>
+    </tr>
+    <tr>
+      <td>Ctrl + F6</td>
+      <td>更改签名</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + N</td>
+      <td>内联</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + M</td>
+      <td>提取方法</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + V</td>
+      <td>提取属性</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + F</td>
+      <td>提取字段</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + C</td>
+      <td>提取常量</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + P</td>
+      <td>提取参数</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="控制vcslocal-history">控制VCS/Local History</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ctrl + K</td>
+      <td>提交项目</td>
+    </tr>
+    <tr>
+      <td>Ctrl + T</td>
+      <td>更新项目</td>
+    </tr>
+    <tr>
+      <td>Alt + Shift + C</td>
+      <td>查看最近的变化</td>
+    </tr>
+    <tr>
+      <td>Alt + BackQuote(’)VCS</td>
+      <td>快速弹出</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + J</td>
+      <td>当前行使用模版</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="模版live-templates">模版(Live Templates)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ctrl + Alt + J</td>
+      <td>当前行使用模版</td>
+    </tr>
+    <tr>
+      <td>Ctrl +Ｊ</td>
+      <td>插入模版</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="基本general">基本(General)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>快捷键</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alt + #[0-9]</td>
+      <td>打开相应编号的工具窗口</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + Y</td>
+      <td>同步</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + F12</td>
+      <td>最大化编辑开关</td>
+    </tr>
+    <tr>
+      <td>Alt + Shift + F</td>
+      <td>添加到最喜欢</td>
+    </tr>
+    <tr>
+      <td>Alt + Shift + I</td>
+      <td>根据配置检查当前文件</td>
+    </tr>
+    <tr>
+      <td>Ctrl + BackQuote(’)</td>
+      <td>快速切换当前计划</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Alt + S</td>
+      <td>打开设置页</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Shift + A</td>
+      <td>查找编辑器里所有的动作</td>
+    </tr>
+    <tr>
+      <td>Ctrl + Tab</td>
+      <td>在窗口间进行切换</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="使用小tips">使用小tips</h1>
+
+<h4 id="1pycharm可以在一个窗口中使用多个项目">1：PyCharm可以在一个窗口中使用多个项目。</h4>
+
+<p>要在已打开的窗口中打开项目，请在“文件”菜单上选择“打开”，然后在“打开项目”对话框中选择“在当前窗口中打开”选项，然后选中“添加到当前打开的项目”复选框。<br />
+步骤：File–&gt;open–&gt;选择要打开的项目–&gt;按图片选择</p>
+
+<h4 id="2快速打开编辑器中的任何类ctrl--nctrl--shift--n">2：快速打开编辑器中的任何类，Ctrl + N、Ctrl + Shift + N</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>请按Ctrl + N（Navigate</td>
+      <td>Class）并开始输入类的名称。 从显示的下拉列表中选择类。</td>
+    </tr>
+    <tr>
+      <td>您可以使用Ctrl + Shift + N（导航</td>
+      <td>文件）以类似的方式打开项目中的任何文件</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="3-代码完成功能可以让您快速完成代码中的各种语句">3 代码完成功能可以让您快速完成代码中的各种语句。</h4>
+
+<p>例如，开始输入一个类名，然后按Ctrl +空格来完成它。 当有多个选项可用时，它们将显示在查找列表中。</p>
+
+<h4 id="4通过按ctrl-空格两次来调用代码完成特性的一个特殊变体可以让您完成任何类的名称而不管它是否被导入到当前文件中-如果类尚未导入则会自动生成导入语句">4：通过按Ctrl +空格两次来调用代码完成特性的一个特殊变体，可以让您完成任何类的名称，而不管它是否被导入到当前文件中。 如果类尚未导入，则会自动生成导入语句。</h4>
+
+<h4 id="5您可以快速找到所有在整个项目中使用特定类方法或变量的地方方法是将脱字符按照符号名称或代码中的用法进行定位然后按alt--f7在弹出式菜单中查找用法">5：您可以快速找到所有在整个项目中使用特定类，方法或变量的地方，方法是将脱字符按照符号名称或代码中的用法进行定位，然后按Alt + F7（在弹出式菜单中查找用法）。</h4>
+
+<h4 id="6要快速查看插入符号处的文档请按ctrl--q查看快速文档">6：要快速查看插入符号处的文档，请按Ctrl + Q（查看|快速文档）。</h4>
+
+<h4 id="7要导航到代码中某处使用的类方法或变量的声明请将插入符定位到使用位置然后按ctrl--b-您也可以点击鼠标的用法按下ctrl键跳到声明">7：要导航到代码中某处使用的类，方法或变量的声明，请将插入符定位到使用位置，然后按Ctrl + B。 您也可以点击鼠标的用法按下Ctrl键跳到声明。</h4>
+
+<h4 id="8您可以使用ctrl--f12导航文件结构在当前编辑的文件中快速导航">8：您可以使用Ctrl + F12（导航|文件结构）在当前编辑的文件中快速导航。</h4>
+
+<p>它显示了当前班级的成员名单。 选择要导航到的元素，然后按Enter键或F4键。<br />
+要轻松找到列表中的项目，只需输入名称即可。</p>
+
+<h4 id="9您可以轻松地重命名您的本地变量并自动更正所有使用它们的地方">9：您可以轻松地重命名您的本地变量，并自动更正所有使用它们的地方。</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>要尝试它，将插入符号放在要重命名的变量中，然后按Shift + F6（Refactor</td>
+      <td>Rename）。 在出现的弹出窗口中输入新名称，或选择一个建议名称，然后按Enter键。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="10使用代码完成时您可以使用tab键在弹出列表中接受当前突出显示的选择">10：使用代码完成时，您可以使用Tab键在弹出列表中接受当前突出显示的选择。</h4>
+
+<p>与使用Enter键接受不同，选定的名称将覆盖脱字符右侧的其余名称。 这对于用另一个替换一个方法或变量名是特别有用的。</p>
+
+<h4 id="11您是否知道您可以在pycharm的编辑器和工具窗口中关闭选项卡而无需使用上下文菜单命令-用鼠标指向要关闭的选项卡然后单击鼠标中键或使用shift-单击组合就足够了">11：您是否知道，您可以在PyCharm的编辑器和工具窗口中关闭选项卡，而无需使用上下文菜单命令？ 用鼠标指向要关闭的选项卡，然后单击鼠标中键或使用Shift +单击组合就足够了。</h4>
+
+<h4 id="12要在任何视图项目视图结构视图或其他中快速选择当前编辑的元素类文件方法或字段请按alt--f1">12：要在任何视图（项目视图，结构视图或其他）中快速选择当前编辑的元素（类，文件，方法或字段），请按Alt + F1。</h4>
+
+<h4 id="13速度搜索在所有树视图中都可用只需开始输入然后快速找到必要的项目">13：速度搜索在所有树视图中都可用：只需开始输入，然后快速找到必要的项目。</h4>
+
+<h4 id="14任何工具窗口中的esc键将焦点移动到编辑器">14：任何工具窗口中的Esc键将焦点移动到编辑器。</h4>
+
+<p>Shift + Esc将焦点移动到编辑器，并隐藏当前（或最后一个活动）工具窗口。</p>
+
+<p>F12键将焦点从编辑器移到最后一个聚焦的工具窗口。</p>
+
+<h4 id="15编辑器中的ctrl--w扩展选择选择插入符号处的单词然后选择源代码的扩展区域-例如可以选择一个方法名称然后是调用这个方法的表达式然后是整个语句然后是包含的块等还可以选择插入的字和源代码的扩展区域-点击编辑器中的目标区域">15：编辑器中的Ctrl + W（扩展选择）选择插入符号处的单词，然后选择源代码的扩展区域。 例如，可以选择一个方法名称，然后是调用这个方法的表达式，然后是整个语句，然后是包含的块等。还可以选择插入的字和源代码的扩展区域， 点击编辑器中的目标区域。</h4>
+
+<h4 id="16extract-variable重构可以帮助您简化代码中的复杂语句-例如在下面的代码片段中可以在代码中选择一个表达式然后按ctrl--alt--vrefactor--extract--variable">16：Extract Variable重构可以帮助您简化代码中的复杂语句。 例如，在下面的代码片段中，可以在代码中选择一个表达式，然后按Ctrl + Alt + V（Refactor | Extract | Variable）。</h4>
+
+<h4 id="17编辑器中的ctrl--d复制所选块或当前行而不选择块">17：编辑器中的Ctrl + D复制所选块或当前行，而不选择块。</h4>
+
+<h4 id="18代码-移动语句向上向下操作对于重新组织文件中的代码行非常有用例如使变量声明更接近变量用法">18：代码| 移动语句向上/向下操作对于重新组织文件中的代码行非常有用，例如，使变量声明更接近变量用法。</h4>
+
+<p>例如，选择一个代码片段，然后按Ctrl + Shift +向上箭头或Ctrl + Shift +向下箭头。</p>
+
+<h4 id="19ctrl--shift--j快捷键将两行合并为一行并删除不必要的空格以符合您的代码样式">19：Ctrl + Shift + J快捷键将两行合并为一行，并删除不必要的空格以符合您的代码样式。</h4>
+
+<h4 id="20如果光标位于方法调用的括号之间按下ctrl--p将弹出一个有效参数列表">20：如果光标位于方法调用的括号之间，按下Ctrl + P将弹出一个有效参数列表。</h4>
+
+<h4 id="21ctrl--shift--backspace导航上一个编辑位置将您带回到您在代码中进行更改的最后一个地方">21：Ctrl + Shift + Backspace（导航|上一个编辑位置）将您带回到您在代码中进行更改的最后一个地方。</h4>
+
+<p>按Ctrl + Shift + Backspace几次，可以更深入地了解您的更改历史记录。</p>
+
+<h4 id="22使用ctrl--shift--f7edit--find-突出显示文件中的用法快速突出显示当前文件中某些变量的用法">22：使用Ctrl + Shift + F7（Edit | Find |突出显示文件中的用法）快速突出显示当前文件中某些变量的用法。</h4>
+
+<p>使用F3和Shift + F3键浏览突出显示的用法。<br />
+按Esc删除突出显示。</p>
+
+<h4 id="23要查看您的本地文件更改历史记录请调用本地历史记录-显示上下文菜单中的历史记录-local-history--show-history-您可以浏览不同的文件版本查看差异并回滚到任何以前的版本">23：要查看您的本地文件更改历史记录，请调用本地历史记录| 显示上下文菜单中的历史记录（ Local History | Show History）。 您可以浏览不同的文件版本，查看差异并回滚到任何以前的版本。</h4>
+
+<p>使用相同的上下文菜单项查看目录上的更改历史记录。 你永远不会失去这个功能的任何代码！</p>
+
+<h4 id="24ctrl--e查看最近的文件带来最近访问的文件的弹出列表-选择所需的文件然后按enter打开它">24：Ctrl + E（查看|最近的文件）带来最近访问的文件的弹出列表。 选择所需的文件，然后按Enter打开它。</h4>
+
+<h4 id="25要在编辑器中的方法之间显示分隔线请打开编辑器设置然后选中外观页面中的显示方法分隔符复选框">25：要在编辑器中的方法之间显示分隔线，请打开编辑器设置，然后选中“外观”页面中的“显示方法分隔符”复选框。</h4>
+
+<h4 id="26当使用基本代码完成ctrl-空格时输入标识符中任何地方存在的任何字符提示符">26：当使用基本代码完成（Ctrl +空格）时，输入标识符中任何地方存在的任何字符。–提示符</h4>
+
+<h4 id="27使用alt-向上箭头和alt-向下箭头键在编辑器中快速移动方法">27：使用Alt +向上箭头和Alt +向下箭头键在编辑器中快速移动方法。</h4>
+
+<h4 id="28使用ctrl--shift--v快捷键选择并将最近的剪贴板内容插入到文本中">28：使用Ctrl + Shift + V快捷键选择并将最近的剪贴板内容插入到文本中。</h4>
+
+<h4 id="29您可以通过按ctrl--o代码覆盖方法轻松地覆盖基类的方法">29：您可以通过按Ctrl + O（代码|覆盖方法）轻松地覆盖基类的方法。</h4>
+
+<h4 id="30为了帮助您了解主菜单中每个项目的用途将鼠标指针放在该项目上时其简短说明会显示在应用程序框架底部的状态栏中">30：为了帮助您了解主菜单中每个项目的用途，将鼠标指针放在该项目上时，其简短说明会显示在应用程序框架底部的状态栏中。</h4>
+
+<h4 id="31要快速打开编辑器中的任何特定方法或字段请按ctrl--alt--shift--n导航符号并开始输入其名称">31：要快速打开编辑器中的任何特定方法或字段，请按Ctrl + Alt + Shift + N（导航|符号）并开始输入其名称。</h4>
+
+<p>从显示的下拉列表中选择符号。</p>
+
+<h4 id="32使用alt--shift--c快速查看您最近对项目的更改">32：使用Alt + Shift + C快速查看您最近对项目的更改。</h4>
+
+<h4 id="33您可以通过拖动鼠标指针轻松进行列选择同时保持按下alt键-alt键同时选择多行">33：您可以通过拖动鼠标指针轻松进行列选择，同时保持按下Alt键。 alt键同时选择多行</h4>
+
+<h4 id="34要快速查找菜单命令或工具栏操作您不需要浏览菜单-只需按ctrl--shift--a在主菜单上的帮助查找操作并开始输入操作的名称-从建议列表中选择所需的操作">34：要快速查找菜单命令或工具栏操作，您不需要浏览菜单。 只需按Ctrl + Shift + A（在主菜单上的帮助|查找操作）并开始输入操作的名称。 从建议列表中选择所需的操作。</h4>
+
+<h4 id="35代码排版自动pep8">35：代码排版，自动PEP8</h4>
+
+<p>pep8 是Python 语言的一个代码编写规范。如若你是新手，目前只想快速掌握基础，而不想过多去注重代码的的编写风格（虽然这很重要），那你可以尝试一下这个工具 -autopep8。<br />
+可参考博客 <a href="https://www.cnblogs.com/xxtalhr/p/10645992.html">https://www.cnblogs.com/xxtalhr/p/10645992.html</a></p>
+
+<h4 id="36误删文件一秒找回">36：误删文件，一秒找回</h4>
+
+<p>可以在你的项目目录里，点击右键，有个 Local History 的选项，再点击子选项 Show History，你可以看到这里有个记录板。如果你想恢复删除的文件，就在删除的记录项点击右键，选择 Revert 即可恢复。</p>
+
+<h4 id="37代码模板效率编码">37：代码模板，效率编码</h4>
+
+<p>Pycharm 提供的这个代码模板，可以说是相当实用的一个功能了。它可以在你新建一个文件时，按照你预设的模板给你生成一段内容，比如解释器路径，编码方法，作者详细信息等<br />
+<a href="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092402292-1592415125.png"><img src="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092402292-1592415125.png" alt="" /></a><br />
+除了新建文件时可以初始化文件，在开发编写代码时，也同样使用 Pycharm 中自带的实用的代码模板，提高你的编码效率。当你在键盘中敲入 Ctrl + J 时，就可以调出一个面板，从下图可以看出里面有许多预设的模板。<br />
+<a href="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092502705-1053875581.png"><img src="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092502705-1053875581.png" alt="" /></a></p>
+
+<h4 id="38关闭烦人的灯泡提示">38：关闭烦人的灯泡提示</h4>
+
+<p>先来说下这个灯泡提示是什么，有什么用？</p>
+
+<p>当我们在代码里面有语法错误，或者代码编写不符合 pep8 代码规范时，鼠标选择有问题的代码，就会自动弹出小灯泡，这个灯泡是有颜色之分的，如果是红灯泡，一般都是语法问题，如果不处理会影响代码运行。而如果是黄灯泡，就只是一个提示，提示你代码不规范等，并不会影响程序的运行。</p>
+
+<p>虽然这个灯泡，是出于善意之举，但我认为它确实有点多余（可能是我个人没有使用它的习惯），要是语法错误会有红色波浪线提示。你可能会说灯泡不仅起到提示的作用，它还可以自动纠正代码，我个人感觉并没有人工校正来得效率，来得精准。</p>
+
+<p>基于有时还会像知乎上这个朋友说的这样，会挡住我们的代码，会经常误点，这确实也是一个烦恼。</p>
+
+<p>Pycharm （2018版本）里是有开关按钮的，将下图中的这个选项（Show intention bulb）取消勾选，就可以关闭这个功能。<br />
+<a href="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092529573-356366078.png"><img src="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092529573-356366078.png" alt="" /></a></p>
+
+<h4 id="39关闭碍眼的波浪线">39：关闭碍眼的波浪线</h4>
+
+<p>Pycharm 本身会实时地对变量名进行检查，如果变量名不是一个已存在的英文单词，就会出现一条波浪线，当一个变量里有多个单词时，Python 推荐的写法是用下划线来分隔（其他语言可能会习惯使用驼峰式命名法 ，但 Python 是使用下划线），那么如何关闭这个非语法级别的波浪线呢？很简单，它的开关就在你的右下角那个像 人头像 一样的按钮<br />
+<a href="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092541375-1264761172.png"><img src="https://img2020.cnblogs.com/blog/1987782/202110/1987782-20211018092541375-1264761172.png" alt="" /></a></p>
+
+<p>注：文章内容来源于网络，若有侵权或不当之处还请谅解</p>
+
+<h1 id="转载信息">转载信息</h1>
+
+<ul>
+  <li><strong>本文作者：</strong> <a href="https://www.cnblogs.com/echohye">北风几吹夏</a></li>
+  <li><strong>本文链接：</strong> <a href="https://www.cnblogs.com/echohye/p/15419237.html">https://www.cnblogs.com/echohye/p/15419237.html</a></li>
+</ul>
+
+<p>本文转自 <a href="https://www.cnblogs.com/echohye/p/15419237.html">https://www.cnblogs.com/echohye/p/15419237.html</a>，如有侵权，请联系删除。</p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="PyCharm" /><category term="快捷键" /><category term="PyCharm" /><summary type="html"><![CDATA[PyCharm的快捷键记录，转自 https://www.cnblogs.com/echohye/p/15419237.html，如有侵权，请联系删除。]]></summary></entry><entry><title type="html">windows共享文件夹的连接不上的解决方案</title><link href="http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="alternate" type="text/html" title="windows共享文件夹的连接不上的解决方案" /><published>2023-07-21T13:38:05+08:00</published><updated>2023-07-21T13:38:05+08:00</updated><id>http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="http://localhost:4000/windows%E9%85%8D%E7%BD%AE/2023/07/21/windows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><![CDATA[<p>手头有几台机器，想要构建一下网络共享，把几台设备的文件夹都互相映射一下，方便访问。但是在<strong>网络</strong>里面通过ip访问局域网设备时发现出现了<strong>无法访问</strong>的问题，在终端里<code class="language-plaintext highlighter-rouge">ping ip</code>也行不通，搜集资料自己试了之后总结了一下。</p>
 
 <h1 id="共享设置">共享设置</h1>
 
