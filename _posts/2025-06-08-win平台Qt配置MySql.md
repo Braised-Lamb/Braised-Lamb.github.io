@@ -3,9 +3,9 @@ layout: post
 title: 
 date: 2025-06-08 01:27:00 +0800
 categories:
-  - qt
+  - Qt
 tags:
-  - qt
+  - Qt
   - MySql
 toc: true
 ---
