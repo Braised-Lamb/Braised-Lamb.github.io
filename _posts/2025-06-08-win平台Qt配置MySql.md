@@ -10,6 +10,8 @@ tags:
 toc: true
 ---
 
+用于windows平台下基于MSVC的Qt和MySql配置
+
 # Qt安装
 
 Qt安装的时候要选择source，用于编译mysql驱动
