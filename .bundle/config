@@ -1,2 +1,4 @@
 ---
 BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: "https://gems.ruby-china.com"
+BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"
+BUNDLE_FORCE_RUBY_PLATFORM: "false"
