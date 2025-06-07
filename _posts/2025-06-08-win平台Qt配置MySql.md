@@ -36,7 +36,7 @@ CDB下载：[winsdksetup.exe](https://download.microsoft.com/download/4/2/2/4224
 
 mysql.pro
 
-```c
+```
 TARGET = qsqlmysql
 
 HEADERS += $$PWD/qsql_mysql_p.h
@@ -65,7 +65,7 @@ DESTDIR="C:\plugins\sqldrivers"
 
 qsqldriverbase.pri 
 
-```c
+```c++
 QT  = core core-private sql-private
 
 # For QMAKE_USE in the parent projects.
@@ -89,7 +89,7 @@ DEFINES += QT_NO_CAST_TO_ASCII QT_NO_CAST_FROM_ASCII
 # 测试
 
 ```c++
- #include "mainwindow.h"        // *****注意****
+#include "mainwindow.h"        // *****注意****
 
 #include<QSqlDatabase>
 #include <QApplication>

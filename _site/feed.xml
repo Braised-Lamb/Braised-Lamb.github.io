@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-08T01:32:46+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">Win平台qt配置mysql</title><link href="http://localhost:4000/qt/2025/06/08/win%E5%B9%B3%E5%8F%B0Qt%E9%85%8D%E7%BD%AEMySql/" rel="alternate" type="text/html" title="Win平台qt配置mysql" /><published>2025-06-08T01:27:00+08:00</published><updated>2025-06-08T01:27:00+08:00</updated><id>http://localhost:4000/qt/2025/06/08/win%E5%B9%B3%E5%8F%B0Qt%E9%85%8D%E7%BD%AEMySql</id><content type="html" xml:base="http://localhost:4000/qt/2025/06/08/win%E5%B9%B3%E5%8F%B0Qt%E9%85%8D%E7%BD%AEMySql/"><![CDATA[<p>用于windows平台下基于MSVC的Qt和MySql配置</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-08T01:42:34+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lamb写东西的地方</title><subtitle>Too young, too simple. Sometimes naive.</subtitle><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><entry><title type="html">Win平台qt配置mysql</title><link href="http://localhost:4000/qt/2025/06/08/win%E5%B9%B3%E5%8F%B0Qt%E9%85%8D%E7%BD%AEMySql/" rel="alternate" type="text/html" title="Win平台qt配置mysql" /><published>2025-06-08T01:27:00+08:00</published><updated>2025-06-08T01:27:00+08:00</updated><id>http://localhost:4000/qt/2025/06/08/win%E5%B9%B3%E5%8F%B0Qt%E9%85%8D%E7%BD%AEMySql</id><content type="html" xml:base="http://localhost:4000/qt/2025/06/08/win%E5%B9%B3%E5%8F%B0Qt%E9%85%8D%E7%BD%AEMySql/"><![CDATA[<p>用于windows平台下基于MSVC的Qt和MySql配置</p>
 
 <h1 id="qt安装">Qt安装</h1>
 
@@ -22,35 +22,35 @@
 
 <p>mysql.pro</p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TARGET</span> <span class="o">=</span> <span class="n">qsqlmysql</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TARGET = qsqlmysql
 
-<span class="n">HEADERS</span> <span class="o">+=</span> <span class="err">$$</span><span class="n">PWD</span><span class="o">/</span><span class="n">qsql_mysql_p</span><span class="p">.</span><span class="n">h</span>
-<span class="n">SOURCES</span> <span class="o">+=</span> <span class="err">$$</span><span class="n">PWD</span><span class="o">/</span><span class="n">qsql_mysql</span><span class="p">.</span><span class="n">cpp</span> <span class="err">$$</span><span class="n">PWD</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">cpp</span>
-
-
-<span class="cp"># QMAKE_USE += mysql
-</span>
-
-<span class="n">OTHER_FILES</span> <span class="o">+=</span> <span class="n">mysql</span><span class="p">.</span><span class="n">json</span>
+HEADERS += $$PWD/qsql_mysql_p.h
+SOURCES += $$PWD/qsql_mysql.cpp $$PWD/main.cpp
 
 
-<span class="n">PLUGIN_CLASS_NAME</span> <span class="o">=</span> <span class="n">QMYSQLDriverPlugin</span>
-<span class="n">include</span><span class="p">(..</span><span class="o">/</span><span class="n">qsqldriverbase</span><span class="p">.</span><span class="n">pri</span><span class="p">)</span>
+# QMAKE_USE += mysql
+
+
+OTHER_FILES += mysql.json
+
+
+PLUGIN_CLASS_NAME = QMYSQLDriverPlugin
+include(../qsqldriverbase.pri)
   
 
-<span class="cp">#这个主要是添加.h依赖文件使用
-</span><span class="n">INCLUDEPATH</span><span class="o">+=</span><span class="s">"C:\Program Files\MySQL\MySQL Server 8.0\include"</span>
+#这个主要是添加.h依赖文件使用
+INCLUDEPATH+="C:\Program Files\MySQL\MySQL Server 8.0\include"
 
-<span class="cp">#添加依赖的.lib文件
-</span><span class="n">LIBS</span><span class="o">+=</span><span class="s">"C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.lib"</span>
+#添加依赖的.lib文件
+LIBS+="C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.lib"
 
-<span class="cp">#生成你所需要的dll存放目录
-</span><span class="n">DESTDIR</span><span class="o">=</span><span class="s">"C:\plugins\sqldrivers"</span>
+#生成你所需要的dll存放目录
+DESTDIR="C:\plugins\sqldrivers"
 </code></pre></div></div>
 
 <p>qsqldriverbase.pri</p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">QT</span>  <span class="o">=</span> <span class="n">core</span> <span class="n">core</span><span class="o">-</span><span class="n">private</span> <span class="n">sql</span><span class="o">-</span><span class="n">private</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">QT</span>  <span class="o">=</span> <span class="n">core</span> <span class="n">core</span><span class="o">-</span><span class="k">private</span> <span class="n">sql</span><span class="o">-</span><span class="k">private</span>
 
 <span class="cp"># For QMAKE_USE in the parent projects.
 # include($$shadowed($$PWD)/qtsqldrivers-config.pri)
@@ -74,7 +74,7 @@
 
 <h1 id="测试">测试</h1>
 
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">#include</span> <span class="cpf">"mainwindow.h"</span><span class="c1">        // *****注意****</span><span class="cp">
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"mainwindow.h"</span><span class="c1">        // *****注意****</span><span class="cp">
 </span>
 <span class="cp">#include</span><span class="cpf">&lt;QSqlDatabase&gt;</span><span class="cp">
 #include</span> <span class="cpf">&lt;QApplication&gt;</span><span class="cp">
@@ -131,7 +131,7 @@
 
 <p>测试成功：</p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/f460619642bc046b4fd2b902371970d7_MD5.jpeg" alt="image.png" /></p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="qt" /><category term="qt" /><category term="MySql" /><summary type="html"><![CDATA[用于windows平台下基于MSVC的Qt和MySql配置]]></summary></entry><entry><title type="html">Pycharm快捷键</title><link href="http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="alternate" type="text/html" title="Pycharm快捷键" /><published>2023-12-06T10:15:00+08:00</published><updated>2023-12-06T10:15:00+08:00</updated><id>http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE</id><content type="html" xml:base="http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/"><![CDATA[<p>PyCharm的快捷键记录，转自 <a href="https://www.cnblogs.com/echohye/p/15419237.html">https://www.cnblogs.com/echohye/p/15419237.html</a>，如有侵权，请联系删除。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Braised-Lamb/picbed/f460619642bc046b4fd2b902371970d7_MD5.jpeg" alt="image.png" /></p>]]></content><author><name>Gao Yang</name><email>ygaolamb@foxmail.com</email></author><category term="Qt" /><category term="Qt" /><category term="MySql" /><summary type="html"><![CDATA[用于windows平台下基于MSVC的Qt和MySql配置]]></summary></entry><entry><title type="html">Pycharm快捷键</title><link href="http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="alternate" type="text/html" title="Pycharm快捷键" /><published>2023-12-06T10:15:00+08:00</published><updated>2023-12-06T10:15:00+08:00</updated><id>http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE</id><content type="html" xml:base="http://localhost:4000/pycharm/2023/12/06/PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/"><![CDATA[<p>PyCharm的快捷键记录，转自 <a href="https://www.cnblogs.com/echohye/p/15419237.html">https://www.cnblogs.com/echohye/p/15419237.html</a>，如有侵权，请联系删除。</p>
 
 <ul>
   <li><strong>原文作者：</strong> <a href="https://www.cnblogs.com/echohye">北风几吹夏</a></li>
